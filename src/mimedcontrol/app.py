@@ -225,7 +225,7 @@ class App:
         self.update_guide()
         self.update_gesture_guide()
 
-        root.title("MimeControl")
+        root.title("MimedControl")
         root.configure(bg=PAPER)
         root.resizable(False, False)
         root.protocol("WM_DELETE_WINDOW", self.close)
@@ -246,12 +246,12 @@ class App:
         self.logo = theme.scaled_image(root, "logo", (40, 50, 60, 80))
         if self.logo is not None:
             tk.Label(heading, image=self.logo, bg=PAPER, bd=0).pack(side="left", padx=(0, 10))
-        # The wordmark: "Mime" in white and "Control" in amber, set as one word.
+        # The wordmark: "Mimed" in white and "Control" in amber, set as one word.
         self.title_font = tkfont.Font(root=root, family=theme.FAMILY, size=22, weight="bold")
-        first, whole = self.title_font.measure("Mime"), self.title_font.measure("MimeControl")
+        first, whole = self.title_font.measure("Mimed"), self.title_font.measure("MimedControl")
         line = self.title_font.metrics("linespace")
         mark = tk.Canvas(heading, width=whole + 2, height=line, bg=PAPER, highlightthickness=0, bd=0)
-        mark.create_text(0, line / 2, text="Mime", anchor="w", font=self.title_font, fill=INK)
+        mark.create_text(0, line / 2, text="Mimed", anchor="w", font=self.title_font, fill=INK)
         mark.create_text(first, line / 2, text="Control", anchor="w", font=self.title_font, fill=ACCENT)
         mark.pack(side="left")
         chips = tk.Frame(heading, bg=PAPER)
@@ -1430,7 +1430,7 @@ class App:
             self.desktop = open_desktop(self.root.winfo_screenwidth(), self.root.winfo_screenheight())
         except Exception as exc:
             self.set_status("Desktop control is unavailable.")
-            messagebox.showerror("MimeControl", str(exc), parent=self.root)
+            messagebox.showerror("MimedControl", str(exc), parent=self.root)
             return
         self.set_sticky()
         self.save_settings()
@@ -1756,10 +1756,10 @@ class App:
         try:
             from importlib.metadata import version
 
-            release = version("mimecontrol")
+            release = version("mimedcontrol")
         except Exception:
             release = "unknown"
-        entry = f"--- {datetime.now():%Y-%m-%d %H:%M:%S} · MimeControl {release}\n{details}\n"
+        entry = f"--- {datetime.now():%Y-%m-%d %H:%M:%S} · MimedControl {release}\n{details}\n"
         try:
             path.parent.mkdir(parents=True, exist_ok=True)
             previous = path.read_text(encoding="utf-8")[-ERROR_LOG_LIMIT:] if path.is_file() else ""

@@ -3,12 +3,12 @@ requires = ["setuptools>=77"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "mimecontrol"
-version = "0.2.0"
+name = "mimedcontrol"
+version = "0.2.1"
 description = "Point, click, drag and scroll with your hands, tracked in 3D by two ordinary webcams."
 readme = "README.md"
 license = "Apache-2.0"
-license-files = ["LICENSE", "NOTICE", "src/mimecontrol/models/LICENSE"]
+license-files = ["LICENSE", "NOTICE", "src/mimedcontrol/models/LICENSE"]
 requires-python = ">=3.10"
 keywords = ["hand tracking", "gestures", "webcam", "stereo", "two cameras", "mouse", "accessibility", "mediapipe"]
 classifiers = [
@@ -45,17 +45,17 @@ dependencies = [
 test = ["pytest>=8"]
 
 [project.gui-scripts]
-mimecontrol = "mimecontrol.app:main"
+mimedcontrol = "mimedcontrol.app:main"
 
 [project.urls]
-Homepage = "https://github.com/schoolboynq/MimeControl"
-Issues = "https://github.com/schoolboynq/MimeControl/issues"
+Homepage = "https://github.com/schoolboynq/MimedControl"
+Issues = "https://github.com/schoolboynq/MimedControl/issues"
 
 [tool.setuptools.packages.find]
 where = ["src"]
 
 [tool.setuptools.package-data]
-mimecontrol = ["models/*.onnx", "models/LICENSE", "assets/*.png"]
+mimedcontrol = ["models/*.onnx", "models/LICENSE", "assets/*.png"]
 
 [tool.pytest.ini_options]
 pythonpath = ["src", "tests"]

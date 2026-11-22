@@ -1,10 +1,10 @@
 <p align="center">
-  <img src="docs/images/banner.png" alt="MimeControl: two webcams, one invisible box, your hands are the mouse" width="100%">
+  <img src="docs/images/banner.png" alt="MimedControl: two webcams, one invisible box, your hands are the mouse" width="100%">
 </p>
 
 <p align="center">
   <b>Point, click, drag and scroll with your bare hands.</b><br>
-  Two ordinary webcams give MimeControl real 3D depth. Draw an invisible box in the air, like a mime,<br>
+  Two ordinary webcams give MimedControl real 3D depth. Draw an invisible box in the air, like a mime,<br>
   and the space inside it becomes your screen.
 </p>
 
@@ -12,7 +12,7 @@
   <a href="LICENSE"><img alt="License: Apache 2.0" src="https://img.shields.io/badge/license-Apache%202.0-ffb547?style=flat-square"></a>
   <img alt="Python 3.10+" src="https://img.shields.io/badge/python-3.10%2B-2a2e38?style=flat-square">
   <img alt="Windows, macOS, Linux" src="https://img.shields.io/badge/runs%20on-Windows%20%C2%B7%20macOS%20%C2%B7%20Linux-2a2e38?style=flat-square">
-  <a href="https://github.com/schoolboynq/MimeControl/actions/workflows/tests.yml"><img alt="Tests" src="https://github.com/schoolboynq/MimeControl/actions/workflows/tests.yml/badge.svg"></a>
+  <a href="https://github.com/schoolboynq/MimedControl/actions/workflows/tests.yml"><img alt="Tests" src="https://github.com/schoolboynq/MimedControl/actions/workflows/tests.yml/badge.svg"></a>
 </p>
 
 ---
@@ -21,7 +21,7 @@
 
 A single webcam sees a flat picture, so it has to **guess** how far away your hand is from how big it looks. Turn your hand or spread your fingers and that guess wobbles.
 
-Add a second webcam and MimeControl **measures** depth instead, from the two views, the way your two eyes do:
+Add a second webcam and MimedControl **measures** depth instead, from the two views, the way your two eyes do:
 
 | | One camera | Two cameras |
 | --- | --- | --- |
@@ -30,7 +30,7 @@ Add a second webcam and MimeControl **measures** depth instead, from the two vie
 | The box you draw in the air | Approximate depth | True 3D box |
 | Push and pull gestures | Good | Steadier and more reliable |
 
-Any two webcams work, for example a USB webcam on your monitor plus a laptop's built-in camera. There's nothing to measure: during calibration you turn your hands for a few seconds and MimeControl works out where the cameras are and how their timing lines up. One camera still works fine. A second one makes it better.
+Any two webcams work, for example a USB webcam on your monitor plus a laptop's built-in camera. There's nothing to measure: during calibration you turn your hands for a few seconds and MimedControl works out where the cameras are and how their timing lines up. One camera still works fine. A second one makes it better.
 
 <p align="center">
   <img src="docs/images/calibrate.png" alt="Calibration with two cameras: both views and the steps panel" width="92%">
@@ -56,13 +56,13 @@ Any two webcams work, for example a USB webcam on your monitor plus a laptop's b
 ## Quick start
 
 1. Install [Python 3.10 or newer](https://www.python.org/downloads/).
-2. Download **MimeControl-Setup.zip** from [Releases](https://github.com/schoolboynq/MimeControl/releases/latest) and extract it.
+2. Download **MimedControl-Setup.zip** from [Releases](https://github.com/schoolboynq/MimedControl/releases/latest) and extract it.
 3. Open the launcher. The first launch sets up a private Python environment and downloads dependencies.
 
 | System | Launcher |
 | --- | --- |
-| Windows 10 or 11 | Double-click **Launch MimeControl.cmd**. Allow desktop apps to use the camera under **Settings → Privacy & security → Camera**. |
-| macOS 13+ | Double-click **Launch MimeControl.command**, then allow Camera, Accessibility and Input Monitoring for Terminal or Python. |
+| Windows 10 or 11 | Double-click **Launch MimedControl.cmd**. Allow desktop apps to use the camera under **Settings → Privacy & security → Camera**. |
+| macOS 13+ | Double-click **Launch MimedControl.command**, then allow Camera, Accessibility and Input Monitoring for Terminal or Python. |
 | Linux (X11) | Run `python3 launch.py` in the extracted folder. Debian and Ubuntu may need `python3-tk` and `python3-venv`. |
 
 4. Pick your **Main camera** and **Second camera**, choose **Calibrate and start**, and follow the steps panel. It takes under a minute.
@@ -72,7 +72,7 @@ Any two webcams work, for example a USB webcam on your monitor plus a laptop's b
 - Aim both cameras at the space in front of you where your hands will be. Your forearms should be in view of both.
 - Put them **a hand-width or more apart**. Wider spacing measures depth more precisely. Different heights are fine, for example one on top of the monitor and one at the bottom of a laptop screen.
 - Keep them still. If you move either camera, choose **Calibrate → Calibrate from scratch**.
-- Mixed models, resolutions and frame rates are fine. MimeControl lines up each camera's timing on its own.
+- Mixed models, resolutions and frame rates are fine. MimedControl lines up each camera's timing on its own.
 
 ## Gestures (Relaxed hand)
 
@@ -92,17 +92,17 @@ Any two webcams work, for example a USB webcam on your monitor plus a laptop's b
 ## Run from source
 
 ```bash
-git clone https://github.com/schoolboynq/MimeControl.git
-cd MimeControl
+git clone https://github.com/schoolboynq/MimedControl.git
+cd MimedControl
 python -m venv .venv && . .venv/bin/activate   # Windows: .venv\Scripts\activate
 python -m pip install -e ".[test]"
-python -m mimecontrol      # start the app
+python -m mimedcontrol      # start the app
 python -m pytest           # run the tests
 ```
 
 ## How it works
 
-MimeControl runs a palm detector and a 21-point hand landmark model on the CPU with OpenCV for every camera frame. With two cameras, it matches each hand across the two views and triangulates its depth, after estimating the cameras' relative position and timing from the hand movements you make during calibration. The box you draw becomes a 3D map from your reach to the screen, and the pointer is filtered to stay steady when you hold still and quick when you move. Clicks and drags go through the operating system's normal mouse input.
+MimedControl runs a palm detector and a 21-point hand landmark model on the CPU with OpenCV for every camera frame. With two cameras, it matches each hand across the two views and triangulates its depth, after estimating the cameras' relative position and timing from the hand movements you make during calibration. The box you draw becomes a 3D map from your reach to the screen, and the pointer is filtered to stay steady when you hold still and quick when you move. Clicks and drags go through the operating system's normal mouse input.
 
 ## Credits
 

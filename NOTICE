@@ -1,12 +1,12 @@
-MimeControl
-Copyright 2026 The MimeControl Authors
+MimedControl
+Copyright 2026 The MimedControl Authors
 
 This product is licensed under the Apache License, Version 2.0 (see LICENSE).
 
 Third-party components
 ----------------------
 
-Hand tracking models (src/mimecontrol/models/palm.onnx and hand.onnx)
+Hand tracking models (src/mimedcontrol/models/palm.onnx and hand.onnx)
   The MediaPipe palm detection and hand landmark models, converted to ONNX and
   published by the OpenCV Zoo project:
     https://github.com/opencv/opencv_zoo/tree/main/models/palm_detection_mediapipe
@@ -14,4 +14,4 @@ Hand tracking models (src/mimecontrol/models/palm.onnx and hand.onnx)
   The original models are part of Google MediaPipe:
     https://github.com/google-ai-edge/mediapipe
   Licensed under the Apache License, Version 2.0. A copy of the license ships
-  with the models in src/mimecontrol/models/LICENSE.
+  with the models in src/mimedcontrol/models/LICENSE.

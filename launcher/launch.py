@@ -29,7 +29,7 @@ def main():
     python = bin_dir / ("python.exe" if os.name == "nt" else "python")
     receipt = environment / ".installed-wheel"
     if not python.is_file() or not receipt.is_file() or receipt.read_text() != wheel.name:
-        print("Setting up MimeControl. The first launch may download dependencies.", flush=True)
+        print("Setting up MimedControl. The first launch may download dependencies.", flush=True)
         venv.EnvBuilder(with_pip=True, symlinks=os.name != "nt").create(environment)
         subprocess.check_call([str(python), "-c", "import tkinter"])
         subprocess.check_call([str(python), "-m", "pip", "--disable-pip-version-check", "--no-cache-dir",
@@ -38,14 +38,14 @@ def main():
 
     options = [option for option in sys.argv[1:] if option in ("--camera-settings",)]
     if os.name == "nt":
-        subprocess.Popen([str(bin_dir / "pythonw.exe"), "-m", "mimecontrol", *options])
+        subprocess.Popen([str(bin_dir / "pythonw.exe"), "-m", "mimedcontrol", *options])
     else:
-        os.execv(python, [str(python), "-m", "mimecontrol", *options])
+        os.execv(python, [str(python), "-m", "mimedcontrol", *options])
 
 
 if __name__ == "__main__":
     try:
         main()
     except (OSError, RuntimeError, subprocess.CalledProcessError) as exc:
-        print(f"MimeControl setup could not complete. {exc}", file=sys.stderr)
+        print(f"MimedControl setup could not complete. {exc}", file=sys.stderr)
         sys.exit(1)

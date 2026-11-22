@@ -1,22 +1,22 @@
-# MimeControl guide
+# MimedControl guide
 
-Control the pointer, click, drag, scroll, zoom, and enter numbers with your hands in front of one or two webcams. Two cameras give MimeControl real 3D depth (see **Two cameras** below). Install and run the app on each computer you want to control. Hand tracking and input run locally. The app neither records nor uploads video.
+Control the pointer, click, drag, scroll, zoom, and enter numbers with your hands in front of one or two webcams. Two cameras give MimedControl real 3D depth (see **Two cameras** below). Install and run the app on each computer you want to control. Hand tracking and input run locally. The app neither records nor uploads video.
 
 ## Install and open
 
 1. Install [Python 3.10 or newer](https://www.python.org/downloads/) if your computer needs it. The launcher sets up a private Python environment in the extracted folder and downloads dependencies on the first run.
-2. Extract all files from `MimeControl-Setup.zip` into a folder you can write to.
+2. Extract all files from `MimedControl-Setup.zip` into a folder you can write to.
 3. Use the launcher for your system. Use the same launcher whenever you reopen the app.
 
 | System | Launcher |
 | --- | --- |
-| Windows 10 or 11, x64 | Double-click **Launch MimeControl.cmd**. Allow desktop apps to access the camera in Windows Privacy settings. **Camera Settings.cmd** opens just the camera's settings. |
-| macOS 13 or later | Double-click **Launch MimeControl.command**. Allow Camera, Accessibility, and Input Monitoring for Terminal or Python in **System Settings → Privacy & Security**. Quit and reopen Terminal after changing input permissions. |
+| Windows 10 or 11, x64 | Double-click **Launch MimedControl.cmd**. Allow desktop apps to access the camera in Windows Privacy settings. **Camera Settings.cmd** opens just the camera's settings. |
+| macOS 13 or later | Double-click **Launch MimedControl.command**. Allow Camera, Accessibility, and Input Monitoring for Terminal or Python in **System Settings → Privacy & Security**. Quit and reopen Terminal after changing input permissions. |
 | Linux with an X11 session | Open a terminal in the extracted directory and run `python3 launch.py`. Debian and Ubuntu may need `python3-tk` and `python3-venv`. Fedora uses `python3-tkinter`. Wayland sessions are unsupported. |
 
-To remove the app, close it and delete the extracted folder. To also erase saved reach and camera-pair calibrations, remove the **MimeControl** settings folder under `%LOCALAPPDATA%` on Windows, `~/Library/Application Support` on macOS, or your XDG configuration directory on Linux (usually `~/.config`). Developers can install from source with `python -m pip install .` inside a virtual environment and run `python -m mimecontrol`.
+To remove the app, close it and delete the extracted folder. To also erase saved reach and camera-pair calibrations, remove the **MimedControl** settings folder under `%LOCALAPPDATA%` on Windows, `~/Library/Application Support` on macOS, or your XDG configuration directory on Linux (usually `~/.config`). Developers can install from source with `python -m pip install .` inside a virtual environment and run `python -m mimedcontrol`.
 
-To update, close MimeControl, extract the new setup ZIP over the old **MimeControl** folder, and run the launcher again. It reuses the existing Python environment.
+To update, close MimedControl, extract the new setup ZIP over the old **MimedControl** folder, and run the launcher again. It reuses the existing Python environment.
 
 ## Use it
 
@@ -39,7 +39,7 @@ Hand tracking works with sideways and upside-down hands, and it uses 3D joint es
 | Scroll | Extend your index and middle fingers. In **Relaxed hand**, tuck your thumb across your palm. Move your hand up or down. |
 | Zoom | Extend your index, middle, and ring fingers. In **Relaxed hand**, tuck your thumb across your palm. Move up to zoom in or down to zoom out. The app sends Ctrl+wheel on Windows and Linux, and Command+`=` or Command+`-` on macOS. |
 | Number pad | Spread your fingers and hold your palm still for about a second (you can reassign this under **Gestures…**), or press **Ctrl+Alt+N**. Focus the app you want to type into, aim to highlight a key, and use your selected click gesture to enter it. Repeat the palm gesture or shortcut to close the pad. |
-| Pause | Press **Ctrl+Alt+Space** while tracking, choose **Pause**, or press **Esc** in the MimeControl window. Pausing releases the camera. |
+| Pause | Press **Ctrl+Alt+Space** while tracking, choose **Pause**, or press **Esc** in the MimedControl window. Pausing releases the camera. |
 
 For browser games, keep the game focused and use the pointer and your selected click gesture. Each active camera runs hand inference with one CPU thread. The app requests up to 30 frames per second, and turns off the preview by default. Response depends on the webcam, lighting, and computer speed.
 
@@ -82,7 +82,7 @@ The app finds each hand's position in 3D from where it is in the picture and how
 
 ### Two cameras
 
-One camera works, but it has to guess how far away your hand is from how big it looks. A second webcam lets MimeControl measure depth from both views, the way your two eyes do, so the box you draw and your push and pull gestures track more reliably, and turning your hand doesn't change its measured distance. Any two webcams work, for example a USB webcam on top of the monitor and a laptop's built-in camera. Mount them a hand-width or more apart and aim both at the space where your hands will be. No measuring is needed.
+One camera works, but it has to guess how far away your hand is from how big it looks. A second webcam lets MimedControl measure depth from both views, the way your two eyes do, so the box you draw and your push and pull gestures track more reliably, and turning your hand doesn't change its measured distance. Any two webcams work, for example a USB webcam on top of the monitor and a laptop's built-in camera. Mount them a hand-width or more apart and aim both at the space where your hands will be. No measuring is needed.
 
 Pick it under **Second camera** on the setup page, then choose **Calibrate and start**. Turning both hands lets the app find the timing difference between the cameras and how they're placed relative to each other. It uses both hands' views and estimates the cameras' spacing from typical adult palm size. Landmark samples stay in memory and never leave the computer.
 
@@ -149,18 +149,18 @@ Show one open palm on its own or use **Ctrl+Alt+N** to toggle the number pad. Tw
 
 On Windows, choose **Camera settings…** on the setup page or **Camera…** while tracking, or double-click **Camera Settings.cmd** to open only this window. It shows a live view and the settings the camera itself offers. These usually include brightness, contrast, saturation, sharpness, hue, white balance, exposure, focus, zoom and anti-flicker, each with the range and **Auto** options the camera reports. With two cameras, pick either one from the list.
 
-Changes go straight to the camera, the way the maker's app sends them, so they stay for every app. MimeControl also remembers what you change and applies it again whenever it opens that camera. **Reset to camera defaults** returns everything to the camera's own defaults and forgets your changes. The widest zoom suits gestures. If your hands look soft in the view, turn off focus **Auto** and move **Focus** until they're sharp. If another app has control of the camera, close that app to change settings here.
+Changes go straight to the camera, the way the maker's app sends them, so they stay for every app. MimedControl also remembers what you change and applies it again whenever it opens that camera. **Reset to camera defaults** returns everything to the camera's own defaults and forgets your changes. The widest zoom suits gestures. If your hands look soft in the view, turn off focus **Auto** and move **Focus** until they're sharp. If another app has control of the camera, close that app to change settings here.
 
 No driver is needed: most webcams use Windows' built-in USB video driver, and video never passes through the maker's app. Keep the maker's app only for firmware updates and brand-specific extras such as HDR or noise reduction, which use private commands.
 
 ## Camera troubleshooting
 
-Choose **Check camera** on the setup page to see the live preview before turning on gestures. On Windows, the test tries Windows MediaCapture first and verifies that multiple usable frames arrive. If the stream stalls, it tries Media Foundation and DirectShow. The status shows the camera or driver that delivers video. If the preview works, choose **Start** (or **Calibrate and start**) straight from the check. Use **Copy camera error** to copy the diagnostic details if setup fails. If something else goes wrong, the app stops tracking, shows **Copy error details**, and adds the report to **errors.log** in the MimeControl settings folder.
+Choose **Check camera** on the setup page to see the live preview before turning on gestures. On Windows, the test tries Windows MediaCapture first and verifies that multiple usable frames arrive. If the stream stalls, it tries Media Foundation and DirectShow. The status shows the camera or driver that delivers video. If the preview works, choose **Start** (or **Calibrate and start**) straight from the check. Use **Copy camera error** to copy the diagnostic details if setup fails. If something else goes wrong, the app stops tracking, shows **Copy error details**, and adds the report to **errors.log** in the MimedControl settings folder.
 
 1. On Windows, check whether the built-in **Camera** app shows video. Then close it and any browser tabs or meeting apps using the camera.
 2. Open **Settings → Privacy & security → Camera** on Windows 11 or **Settings → Privacy → Camera** on Windows 10. Enable **Camera access** and **Let desktop apps access your camera**.
 3. Choose **Check camera** again. If the camera fails or shows the wrong feed, pick another one from the **Camera** list. If the preview is black, check the camera's shutter or privacy key.
-4. If a 4K or other high-resolution webcam keeps disconnecting, plug it straight into a USB 3 port rather than a hub, and close other apps that use it so MimeControl can switch it to a lighter video mode.
+4. If a 4K or other high-resolution webcam keeps disconnecting, plug it straight into a USB 3 port rather than a hub, and close other apps that use it so MimedControl can switch it to a lighter video mode.
 
 ## Model credits
 

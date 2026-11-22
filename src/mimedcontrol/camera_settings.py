@@ -1,7 +1,7 @@
 """A window for the webcam's own picture settings, with a live view of the camera you're adjusting.
 
 Changes go straight to the camera, as they do from a camera maker's app, so they stay for every app.
-MimeControl also saves them and applies them again whenever it opens that camera.
+MimedControl also saves them and applies them again whenever it opens that camera.
 """
 
 import tkinter as tk
@@ -36,7 +36,7 @@ class CameraSettingsWindow:
         frame.grid()
         tk.Label(frame, text="Camera settings", bg=PAPER, fg=INK, font=theme.font(16, "bold")).grid(
             row=0, column=0, columnspan=2, sticky="w")
-        tk.Label(frame, text="Changes go straight to the camera and stay for every app. MimeControl "
+        tk.Label(frame, text="Changes go straight to the camera and stay for every app. MimedControl "
                              "applies them again each time it opens this camera.", bg=PAPER, fg=MUTED,
                  wraplength=760, justify="left").grid(row=1, column=0, columnspan=2, sticky="w", pady=(2, 10))
         top = ttk.Frame(frame)

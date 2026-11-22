@@ -1,9 +1,9 @@
-"""Draw MimeControl's logo and app icons (white mime glove in an amber spotlight)."""
+"""Draw MimedControl's logo and app icons (white mime glove in an amber spotlight)."""
 from math import atan2, cos, hypot, sin
 from pathlib import Path
 from PIL import Image, ImageDraw
 
-ASSETS = Path(__file__).resolve().parents[1] / "src" / "mimecontrol" / "assets"
+ASSETS = Path(__file__).resolve().parents[1] / "src" / "mimedcontrol" / "assets"
 AMBER, AMBER_DEEP, GLOVE, CUFF = (255, 181, 71), (233, 154, 44), (251, 248, 242), (226, 218, 205)
 
 

@@ -1,4 +1,4 @@
-"""MimeControl's look: a dark stage lit by an amber spotlight."""
+"""MimedControl's look: a dark stage lit by an amber spotlight."""
 
 import sys
 import tkinter as tk
@@ -152,7 +152,7 @@ def set_icon(window):
             pass
     if images:
         window.iconphoto(True, *reversed(images))
-        window._mimecontrol_icons = images  # Tk forgets images nothing refers to.
+        window._mimedcontrol_icons = images  # Tk forgets images nothing refers to.
 
 
 class Card:

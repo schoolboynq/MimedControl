@@ -3,8 +3,8 @@ import numpy as np
 import pytest
 from hands import palm_pinch, palm_ready, pts, ready, shape, squeeze
 
-from mimecontrol.gestures import GestureState
-from mimecontrol.relaxed_hand import RELAXED_HAND
+from mimedcontrol.gestures import GestureState
+from mimedcontrol.relaxed_hand import RELAXED_HAND
 
 W, H = 640, 480
 

@@ -2,6 +2,7 @@
 
 import json
 import os
+import shutil
 import sys
 from math import isfinite
 from pathlib import Path
@@ -898,14 +899,34 @@ class BoxCalibration:
             self.hint = f"{exc} Let's draw it again."
 
 
-def profile_path(camera_index, aspect):
+FOLDER = "MimedControl"
+EARLIER_FOLDERS = ("MimeControl",)  # names the settings folder had in earlier releases
+
+
+def settings_folder():
+    """Where calibrations and settings live. Copies an earlier release's folder over on first use."""
     if sys.platform == "win32":
         root = Path(os.getenv("LOCALAPPDATA") or Path.home() / "AppData" / "Local")
     elif sys.platform == "darwin":
         root = Path.home() / "Library" / "Application Support"
     else:
         root = Path(os.getenv("XDG_CONFIG_HOME") or Path.home() / ".config")
-    return root / "MimeControl" / f"reach-{camera_index}-{aspect}.json"
+    folder = root / FOLDER
+    if not folder.exists():
+        earlier = next((root / name for name in EARLIER_FOLDERS if (root / name).is_dir()), None)
+        if earlier is not None:
+            partial = root / f"{FOLDER}.partial"
+            try:
+                shutil.rmtree(partial, ignore_errors=True)
+                shutil.copytree(earlier, partial)
+                partial.rename(folder)
+            except OSError:
+                shutil.rmtree(partial, ignore_errors=True)
+    return folder
+
+
+def profile_path(camera_index, aspect):
+    return settings_folder() / f"reach-{camera_index}-{aspect}.json"
 
 
 def load_reach(path):

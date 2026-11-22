@@ -89,10 +89,15 @@ def banner(width=1280, height=640, path=None):
         r = 8 * S
         draw.ellipse((x - r, y - r, x + r, y + r), fill=AMBER, outline=(27, 20, 6), width=2 * S)
     # Wordmark and tagline.
-    title = font(104)
     x0, y0 = 72 * S, 190 * S
-    draw.text((x0, y0), "Mime", font=title, fill=INK)
-    draw.text((x0 + draw.textlength("Mime", font=title), y0), "Control", font=title, fill=AMBER)
+    room = f[0][0] - 40 * S - x0  # keep the wordmark clear of the box
+    size_pt = 104
+    title = font(size_pt)
+    while size_pt > 60 and draw.textlength("MimedControl", font=title) > room:
+        size_pt -= 2
+        title = font(size_pt)
+    draw.text((x0, y0), "Mimed", font=title, fill=INK)
+    draw.text((x0 + draw.textlength("Mimed", font=title), y0), "Control", font=title, fill=AMBER)
     tag = font(34, "Medium")
     for i, line in enumerate(("Two webcams. One invisible box.", "Your hands are the mouse.")):
         draw.text((x0 + 4 * S, y0 + 140 * S + i * 46 * S), line, font=tag, fill=INK if i else MUTED)

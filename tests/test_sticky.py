@@ -3,9 +3,9 @@ from math import hypot, pi, sin
 
 import pytest
 
-from mimecontrol.displays import DisplayLayout
-from mimecontrol.sticky import StickyPointer
-from mimecontrol.targets_windows import TargetSnapshot
+from mimedcontrol.displays import DisplayLayout
+from mimedcontrol.sticky import StickyPointer
+from mimedcontrol.targets_windows import TargetSnapshot
 
 LAYOUT = DisplayLayout(((0, 0, 1920, 1080),))
 MONITOR = LAYOUT.rects[0]

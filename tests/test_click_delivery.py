@@ -1,7 +1,7 @@
 """Mouse button timing: quick clicks keep their spot, held buttons drag, nothing stays stuck."""
 import pytest
 
-from mimecontrol import desktop
+from mimedcontrol import desktop
 
 
 @pytest.fixture
